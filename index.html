@@ -37,6 +37,27 @@
             opacity: 0.9;
         }
 
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -60,11 +81,28 @@
             margin-bottom: 1rem;
             border-bottom: 2px solid #667eea;
             padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .section p {
             margin-bottom: 1rem;
             text-align: justify;
+            line-height: 1.8;
+        }
+
+        .section ul, .section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
         }
 
         .goals {
@@ -89,29 +127,144 @@
 
         .goal-card h3 {
             margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .step-card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: 2px solid #667eea;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            border-color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
         }
 
         footer {
             background: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature {
+            background: white;
             padding: 1rem;
-            margin-top: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .github-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1rem 0;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            font-style: italic;
         }
 
-        .github-link:hover {
-            background: #764ba2;
+        .hidden-section {
+            display: none;
+        }
+
+        .hidden-section.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -121,14 +274,49 @@
         <p>Kişisel Gelişim Programı - Başarıya Giden Yolculuğunuz</p>
     </header>
 
+    <nav>
+        <a href="#home" onclick="showSection('home')">🏠 Anasayfa</a>
+        <a href="#program" onclick="showSection('program')">📚 Program</a>
+        <a href="#steps" onclick="showSection('steps')">🚀 Adımlar</a>
+        <a href="#resources" onclick="showSection('resources')">📖 Kaynaklar</a>
+        <a href="#contact" onclick="showSection('contact')">📞 İletişim</a>
+    </nav>
+
     <div class="container">
-        <div class="content">
+        <!-- ANASAYFA -->
+        <div id="home" class="content">
             <div class="section">
                 <h2>Hoş Geldiniz!</h2>
                 <p>
                     Bu platform, kariyer hedeflerinizi belirlemek ve kişisel gelişim yolculuğunuzu başlatmak için tasarlanmıştır.
                     Sistemli bir planlama ile, hayallerinizi gerçeğe dönüştürebilirsiniz.
                 </p>
+            </div>
+
+            <div class="section">
+                <h2>Neden Kariyer Planı?</h2>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h4>Hedef Belirleme</h4>
+                        <p>Açık ve ölçülebilir hedefler tanımlayın</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📊</div>
+                        <h4>İlerleme Takibi</h4>
+                        <p>Gelişiminizi düzenli olarak izleyin</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💪</div>
+                        <h4>Güç Geliştirme</h4>
+                        <p>Yeni beceriler kazanın</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌟</div>
+                        <h4>Başarıya Ulaşma</h4>
+                        <p>Hayallerinizi gerçekleştirin</p>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -153,13 +341,173 @@
                 </div>
             </div>
 
+            <div class="button-group">
+                <button class="btn" onclick="showSection('program')">🚀 Programa Başla</button>
+                <button class="btn btn-secondary" onclick="showSection('steps')">📋 Adımları Gör</button>
+            </div>
+        </div>
+
+        <!-- PROGRAM BÖLÜMÜ -->
+        <div id="program" class="content hidden-section">
             <div class="section">
-                <h2>Başlayalım!</h2>
+                <h2>📚 Kariyer Gelişim Programı</h2>
                 <p>
-                    Kariyer planınızı oluşturmaya hazır mısınız? Adım adım rehberimizi izleyerek, 
-                    hedeflerinize ulaşmanızı sağlayacak bir yol haritası oluşturun.
+                    Başarılı bir kariyer inşa etmek için sistematik bir yaklaşım gereklidir. 
+                    Programımız, size yol gösterecek ve hedeflerinize ulaşmanızda yardımcı olacak kapsamlı bir yol haritası sunar.
                 </p>
-                <a href="https://github.com/beyzayilmazfb97/kariyer_plan" class="github-link">📋 Detaylı Plana Git</a>
+
+                <h3>Program İçeriği:</h3>
+                <ul>
+                    <li><strong>Ay 1-2:</strong> Kendini Tanıma - Güçlü ve zayıf yönlerinizi belirleyin</li>
+                    <li><strong>Ay 3-4:</strong> Hedef Belirleme - SMART hedefler tanımlayın</li>
+                    <li><strong>Ay 5-8:</strong> Beceri Geliştirme - İhtiyaç duyduğunuz becerileri öğrenin</li>
+                    <li><strong>Ay 9-10:</strong> Networking - Profesyonel ağ oluşturun</li>
+                    <li><strong>Ay 11-12:</strong> İş Bulma ve Başarı - Hedefinizdeki pozisyona ulaşın</li>
+                </ul>
+
+                <h3>Program Avantajları:</h3>
+                <ul>
+                    <li>✅ Kişiselleştirilmiş yol haritası</li>
+                    <li>✅ Uzman rehberliği</li>
+                    <li>✅ Uygulamalı projeler</li>
+                    <li>✅ Sertifikasyon fırsatları</li>
+                    <li>✅ Sürekli destek ve mentoring</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <button class="btn" onclick="showSection('steps')">Sonraki Adım →</button>
+                <button class="btn btn-secondary" onclick="showSection('home')">← Geri Dön</button>
+            </div>
+        </div>
+
+        <!-- ADIMLAR BÖLÜMÜ -->
+        <div id="steps" class="content hidden-section">
+            <div class="section">
+                <h2>🚀 Başlamak İçin Adımlar</h2>
+                <p>Kariyer planınızı oluşturmak için aşağıdaki adımları izleyin:</p>
+
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Kendi Değerlendirmesi Yapın</h4>
+                        <p>Yeteneklerinizi, ilgilerinizi ve değerlerinizi analiz edin. Bu, doğru yol seçmenin temelini oluşturur.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Hedef Belirleyin</h4>
+                        <p>SMART hedefler (Spesifik, Ölçülebilir, Ulaşılabilir, Gerçekçi, Zaman sınırlı) tanımlayın.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Eğitim Planı Yapın</h4>
+                        <p>İhtiyaç duyduğunuz becerileri öğrenmek için bir eğitim planı oluşturun.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Proje ve Pratik Yapın</h4>
+                        <p>Öğrendiklerinizi pratik olarak uygulamak için projeler gerçekleştirin.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h4>Network Oluşturun</h4>
+                        <p>Sektörde profesyonellerle bağlantı kurun ve ilişkilerinizi geliştirin.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <h4>İş Bulun ve Başarı Kazanın</h4>
+                        <p>Öğrendiklerinizi ve ağınızı kullanarak hedefinizdeki işi bulun.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn" onclick="showSection('resources')">Kaynakları Gör →</button>
+                <button class="btn btn-secondary" onclick="showSection('program')">← Geri Dön</button>
+            </div>
+        </div>
+
+        <!-- KAYNAKLAR BÖLÜMÜ -->
+        <div id="resources" class="content hidden-section">
+            <div class="section">
+                <h2>📖 Kaynaklar ve Materyaller</h2>
+
+                <h3>Önerilen Kurslar:</h3>
+                <ul>
+                    <li><strong>LinkedIn Learning:</strong> Profesyonel beceri geliştirme kursları</li>
+                    <li><strong>Coursera:</strong> Üniversite seviyesi eğitim programları</li>
+                    <li><strong>Udemy:</strong> Çeşitli konularda uygulamalı kurslar</li>
+                    <li><strong>edX:</strong> Bilgisayar bilimi ve teknoloji kursları</li>
+                </ul>
+
+                <h3>Faydalı Kitaplar:</h3>
+                <ul>
+                    <li>"Atomic Habits" - James Clear</li>
+                    <li>"So Good They Can't Ignore You" - Cal Newport</li>
+                    <li>"Mindset" - Carol S. Dweck</li>
+                    <li>"The 7 Habits of Highly Effective People" - Stephen Covey</li>
+                </ul>
+
+                <h3>Online Araçlar:</h3>
+                <ul>
+                    <li><strong>LinkedIn:</strong> Profesyonel profil oluşturma ve networking</li>
+                    <li><strong>GitHub:</strong> Teknik portföy oluşturma</li>
+                    <li><strong>Portfolio Siteleri:</strong> Behance, Dribbble, Portföy.com</li>
+                    <li><strong>Kariyer Testleri:</strong> Myers-Briggs, Strong Interest Inventory</li>
+                </ul>
+
+                <div class="testimonial">
+                    <p>"Kariyer planımı bu program sayesinde başarıyla oluşturabildim. Hedeflerime ulaşmak için gerekli olan tüm adımları adım adım takip edebildim."</p>
+                    <p><strong>- Başarılı Bir Kullanıcı</strong></p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn" onclick="showSection('contact')">İletişim →</button>
+                <button class="btn btn-secondary" onclick="showSection('steps')">← Geri Dön</button>
+            </div>
+        </div>
+
+        <!-- İLETİŞİM BÖLÜMÜ -->
+        <div id="contact" class="content hidden-section">
+            <div class="section">
+                <h2>📞 İletişim</h2>
+                <p>Sorularınız, önerileriniz veya geri bildirimleriniz için benimle iletişime geçebilirsiniz.</p>
+
+                <h3>İletişim Bilgileri:</h3>
+                <ul>
+                    <li>📧 <strong>Email:</strong> beyzayilmazfb97@gmail.com</li>
+                    <li>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color: #667eea;">LinkedIn Profilim</a></li>
+                    <li>🐙 <strong>GitHub:</strong> <a href="https://github.com/beyzayilmazfb97" target="_blank" style="color: #667eea;">GitHub Profilim</a></li>
+                    <li>🌐 <strong>Website:</strong> <a href="https://beyzayilmazfb97.github.io/kariyer_plan" style="color: #667eea;">kariyer_plan.com</a></li>
+                </ul>
+
+                <h3>Bana Yazın:</h3>
+                <form style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Adınız:</label>
+                        <input type="text" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email:</label>
+                        <input type="email" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Mesaj:</label>
+                        <textarea style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px; min-height: 120px;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; text-align: center;">Gönder</button>
+                </form>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="showSection('resources')">← Geri Dön</button>
+                <button class="btn" onclick="showSection('home')">🏠 Anasayfaya Dön</button>
             </div>
         </div>
     </div>
@@ -167,6 +515,29 @@
     <footer>
         <p>&copy; 2026 Kariyer Planı. Tüm Hakları Saklıdır.</p>
         <p>Geliştirici: beyzayilmazfb97</p>
+        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">Bu web sitesi GitHub Pages tarafından sunulmaktadır.</p>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Tüm bölümleri gizle
+            const sections = document.querySelectorAll('.hidden-section, #home');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Seçilen bölümü göster
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Sayfa yüklendiğinde anasayfayı göster
+        window.addEventListener('load', () => {
+            showSection('home');
+        });
+    </script>
 </body>
 </html>
