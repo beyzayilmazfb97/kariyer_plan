@@ -46,16 +46,22 @@
             z-index: 100;
         }
 
-        nav a {
+        nav button {
             color: white;
-            text-decoration: none;
+            background: none;
+            border: none;
             margin: 0 1.5rem;
-            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
             font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        nav a:hover {
+        nav button:hover {
             color: #667eea;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
 
         .container {
@@ -70,6 +76,17 @@
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin: 2rem 0;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .section {
@@ -186,6 +203,7 @@
             border: 2px solid #667eea;
             cursor: pointer;
             font-weight: 600;
+            font-size: 1rem;
         }
 
         .btn:hover {
@@ -240,12 +258,26 @@
             font-style: italic;
         }
 
-        .hidden-section {
-            display: none;
+        a {
+            color: #667eea;
+            text-decoration: none;
         }
 
-        .hidden-section.active {
-            display: block;
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
         }
 
         @media (max-width: 768px) {
@@ -253,7 +285,7 @@
                 font-size: 2rem;
             }
 
-            nav a {
+            nav button {
                 display: block;
                 margin: 0.5rem 0;
             }
@@ -275,16 +307,16 @@
     </header>
 
     <nav>
-        <a href="#home" onclick="showSection('home')">🏠 Anasayfa</a>
-        <a href="#program" onclick="showSection('program')">📚 Program</a>
-        <a href="#steps" onclick="showSection('steps')">🚀 Adımlar</a>
-        <a href="#resources" onclick="showSection('resources')">📖 Kaynaklar</a>
-        <a href="#contact" onclick="showSection('contact')">📞 İletişim</a>
+        <button onclick="showSection('home')">🏠 Anasayfa</button>
+        <button onclick="showSection('program')">📚 Program</button>
+        <button onclick="showSection('steps')">🚀 Adımlar</button>
+        <button onclick="showSection('resources')">📖 Kaynaklar</button>
+        <button onclick="showSection('contact')">📞 İletişim</button>
     </nav>
 
     <div class="container">
         <!-- ANASAYFA -->
-        <div id="home" class="content">
+        <div id="home" class="content active">
             <div class="section">
                 <h2>Hoş Geldiniz!</h2>
                 <p>
@@ -348,7 +380,7 @@
         </div>
 
         <!-- PROGRAM BÖLÜMÜ -->
-        <div id="program" class="content hidden-section">
+        <div id="program" class="content">
             <div class="section">
                 <h2>📚 Kariyer Gelişim Programı</h2>
                 <p>
@@ -382,7 +414,7 @@
         </div>
 
         <!-- ADIMLAR BÖLÜMÜ -->
-        <div id="steps" class="content hidden-section">
+        <div id="steps" class="content">
             <div class="section">
                 <h2>🚀 Başlamak İçin Adımlar</h2>
                 <p>Kariyer planınızı oluşturmak için aşağıdaki adımları izleyin:</p>
@@ -433,7 +465,7 @@
         </div>
 
         <!-- KAYNAKLAR BÖLÜMÜ -->
-        <div id="resources" class="content hidden-section">
+        <div id="resources" class="content">
             <div class="section">
                 <h2>📖 Kaynaklar ve Materyaller</h2>
 
@@ -474,7 +506,7 @@
         </div>
 
         <!-- İLETİŞİM BÖLÜMÜ -->
-        <div id="contact" class="content hidden-section">
+        <div id="contact" class="content">
             <div class="section">
                 <h2>📞 İletişim</h2>
                 <p>Sorularınız, önerileriniz veya geri bildirimleriniz için benimle iletişime geçebilirsiniz.</p>
@@ -482,24 +514,23 @@
                 <h3>İletişim Bilgileri:</h3>
                 <ul>
                     <li>📧 <strong>Email:</strong> beyzayilmazfb97@gmail.com</li>
-                    <li>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color: #667eea;">LinkedIn Profilim</a></li>
-                    <li>🐙 <strong>GitHub:</strong> <a href="https://github.com/beyzayilmazfb97" target="_blank" style="color: #667eea;">GitHub Profilim</a></li>
-                    <li>🌐 <strong>Website:</strong> <a href="https://beyzayilmazfb97.github.io/kariyer_plan" style="color: #667eea;">kariyer_plan.com</a></li>
+                    <li>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">LinkedIn Profilim</a></li>
+                    <li>🐙 <strong>GitHub:</strong> <a href="https://github.com/beyzayilmazfb97" target="_blank">GitHub Profilim</a></li>
                 </ul>
 
                 <h3>Bana Yazın:</h3>
-                <form style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <form style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;" onsubmit="handleFormSubmit(event)">
                     <div style="margin-bottom: 1rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Adınız:</label>
-                        <input type="text" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                        <input type="text" placeholder="Adınızı giriniz" required>
                     </div>
                     <div style="margin-bottom: 1rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email:</label>
-                        <input type="email" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                        <input type="email" placeholder="Email adresiniz" required>
                     </div>
                     <div style="margin-bottom: 1rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Mesaj:</label>
-                        <textarea style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px; min-height: 120px;" required></textarea>
+                        <textarea placeholder="Mesajınızı yazınız" required></textarea>
                     </div>
                     <button type="submit" class="btn" style="width: 100%; text-align: center;">Gönder</button>
                 </form>
@@ -521,7 +552,7 @@
     <script>
         function showSection(sectionId) {
             // Tüm bölümleri gizle
-            const sections = document.querySelectorAll('.hidden-section, #home');
+            const sections = document.querySelectorAll('.content');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
@@ -534,10 +565,11 @@
             }
         }
 
-        // Sayfa yüklendiğinde anasayfayı göster
-        window.addEventListener('load', () => {
-            showSection('home');
-        });
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Teşekkürler! Mesajınız alınmıştır. En kısa sürede size geri dönüş yapacağız.');
+            event.target.reset();
+        }
     </script>
 </body>
 </html>
