@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kariyer Planı - Kişisel Gelişim Programı Oluşturucu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav button {
+            color: white;
+            background: none;
+            border: none;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover {
+            color: #667eea;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: #667eea;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .result-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .plan-item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .plan-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-item p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+
+        .skill-chip {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .range-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .range-group input[type="range"] {
+            flex: 1;
+            width: 100%;
+        }
+
+        .range-value {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            min-width: 60px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+            border-left: 2px solid #667eea;
+            padding-left: 20px;
+        }
+
+        .timeline-item:last-child {
+            border-left: none;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav button {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 Kariyer Planı Oluşturucu</h1>
+        <p>Kişiselleştirilmiş Gelişim Programı Yarat</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('form')">📋 Anket</button>
+        <button onclick="showSection('plan')">📊 Planım</button>
+        <button onclick="showSection('home')">🏠 Ana Sayfa</button>
+    </nav>
+
+    <div class="container">
+        <!-- ANASAYFA -->
+        <div id="home" class="content active">
+            <div class="section">
+                <h2>Kişiselleştirilmiş Kariyer Planı Oluştur</h2>
+                <p>
+                    Bu araç, sizin hedeflerinize, mevcut durumunuza ve zamanınıza göre 
+                    özel bir kariyer gelişim programı oluşturur. Sadece aşağıdaki soruları 
+                    cevaplayın ve size uygun bir plan alın!
+                </p>
+            </div>
+
+            <div class="section">
+                <h3>Nasıl Çalışır?</h3>
+                <div class="plan-item">
+                    <h4>1️⃣ Anket Doldurun</h4>
+                    <p>Kariyer hedefi, mevcut durumu, güçlü ve zayıf yönleriniz hakkında sorularımızı cevaplayın.</p>
+                </div>
+                <div class="plan-item">
+                    <h4>2️⃣ Analiz Alın</h4>
+                    <p>Cevaplarınız analiz edilerek size uygun kariyer yolları ve beceri sırası belirlenir.</p>
+                </div>
+                <div class="plan-item">
+                    <h4>3️⃣ Plana Başlayın</h4>
+                    <p>Ay ay hedefler, haftalık program ve 20+ proje fikri içeren detaylı plan alın.</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn" onclick="showSection('form')">📋 Anketi Başlat</button>
+            </div>
+        </div>
+
+        <!-- ANKET FORMU -->
+        <div id="form" class="content">
+            <div class="section">
+                <h2>Kariyer Analizi Anketi</h2>
+                <p>Lütfen tüm soruları samimiyetle cevaplayın. Cevaplarınız sizin için optimal bir plan oluşturmada kullanılacak.</p>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <form id="surveyForm">
+                <!-- Hedef Kariyer Alanı -->
+                <div class="section">
+                    <h3>1. Hedef Kariyer Alanı</h3>
+                    <div class="form-group">
+                        <label>Hangi alan/sektöre geçmek istiyorsunuz?</label>
+                        <input type="text" id="targetField" name="targetField" placeholder="Örn: AI Marketing, Data Science, Web Development..." required>
+                    </div>
+                </div>
+
+                <!-- Mevcut Durumu -->
+                <div class="section">
+                    <h3>2. Mevcut Durumunuz</h3>
+                    <div class="form-group">
+                        <label>Şu anda ne yapıyorsunuz?</label>
+                        <select id="currentJob" name="currentJob" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="yeni_baslayan">Tamamen yeni başlayan (sıfır deneyim)</option>
+                            <option value="farkli_sektorden">Farklı sektörden (0-5 yıl deneyim)</option>
+                            <option value="ayni_sektorden">Aynı sektörde çalışan (5+ yıl deneyim)</option>
+                            <option value="ogrenci">Öğrenci / Üniversitede</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Eğitim seviyeniz?</label>
+                        <select id="education" name="education" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="lise">Lise / Ön lisans</option>
+                            <option value="lisans">Lisans (4 yıl)</option>
+                            <option value="yuksek_lisans">Yüksek lisans</option>
+                            <option value="doktora">Doktora</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ön deneyimleriniz (varsa)</label>
+                        <textarea id="background" name="background" placeholder="Örn: Kimya mühendisliği + 3 yıl teknik satış + Canva kullanıyorum..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Zaman -->
+                <div class="section">
+                    <h3>3. Haftada Ne Kadar Zaman Ayırabilirsiniz?</h3>
+                    <div class="form-group">
+                        <label>Haftada kaç saat?</label>
+                        <div class="range-group">
+                            <input type="range" id="weeklyHours" name="weeklyHours" min="3" max="50" value="10" oninput="updateHourDisplay()">
+                            <span class="range-value" id="hourDisplay">10 saat</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hedef İş Alanına Geçmek İçin Kaç Ay Zaman Vardır?</label>
+                        <select id="timeFrame" name="timeFrame" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="3">3 ay (acil)</option>
+                            <option value="6">6 ay</option>
+                            <option value="12">12 ay (1 yıl)</option>
+                            <option value="18">18 ay</option>
+                            <option value="24">24 ay (2 yıl)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Güçlü Yönler -->
+                <div class="section">
+                    <h3>4. Güçlü Yönleriniz (Seçin)</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_analytical" name="strengths" value="Analitik Düşünme">
+                            <label for="strength_analytical">Analitik Düşünme</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_communication" name="strengths" value="İletişim">
+                            <label for="strength_communication">İletişim Becerisi</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_technical" name="strengths" value="Teknik Bilgi">
+                            <label for="strength_technical">Teknik Bilgi</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_creative" name="strengths" value="Yaratıcılık">
+                            <label for="strength_creative">Yaratıcılık</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_sales" name="strengths" value="Satış/Persuasyon">
+                            <label for="strength_sales">Satış/Persuasyon</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_management" name="strengths" value="Yönetim">
+                            <label for="strength_management">Yönetim Yeteneği</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_learning" name="strengths" value="Hızlı Öğrenme">
+                            <label for="strength_learning">Hızlı Öğrenme</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strength_problem" name="strengths" value="Problem Çözme">
+                            <label for="strength_problem">Problem Çözme</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zayıf Yönler -->
+                <div class="section">
+                    <h3>5. Zayıf Yönleriniz / Eksiklikler (Seçin)</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_technical" name="weaknesses" value="Teknik Beceri">
+                            <label for="weakness_technical">Teknik Beceri</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_english" name="weaknesses" value="İngilizce">
+                            <label for="weakness_english">İngilizce Dil Bilgisi</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_experience" name="weaknesses" value="Deneyim Eksikliği">
+                            <label for="weakness_experience">Deneyim Eksikliği</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_portfolio" name="weaknesses" value="Portfolio">
+                            <label for="weakness_portfolio">Portfolyo Yok</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_network" name="weaknesses" value="Network">
+                            <label for="weakness_network">Network Zayıf</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_confidence" name="weaknesses" value="Özgüven">
+                            <label for="weakness_confidence">Özgüven Eksikliği</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_marketing" name="weaknesses" value="Pazarlama">
+                            <label for="weakness_marketing">Kendini Pazarlama</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="weakness_consistency" name="weaknesses" value="Tutarlılık">
+                            <label for="weakness_consistency">Tutarlılık/Disiplin</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motivasyon -->
+                <div class="section">
+                    <h3>6. Ne İstiyorsunuz?</h3>
+                    <div class="form-group">
+                        <label>Bu kariyer değişikliğinin amacı nedir?</label>
+                        <textarea id="motivation" name="motivation" placeholder="Örn: Daha iyi maaş, ilgi alanım, uzaktan çalışma, startupda çalışmak..." required></textarea>
+                    </div>
+                </div>
+
+                <!-- İlgi Alanları -->
+                <div class="section">
+                    <h3>7. İlgi Alanlarınız (Seçin)</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_ai" name="interests" value="AI/ML">
+                            <label for="interest_ai">AI/Machine Learning</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_web" name="interests" value="Web Geliştirme">
+                            <label for="interest_web">Web Geliştirme</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_data" name="interests" value="Veri Analitik">
+                            <label for="interest_data">Veri Analitik</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_marketing" name="interests" value="Pazarlama">
+                            <label for="interest_marketing">Pazarlama/Growth</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_design" name="interests" value="Tasarım">
+                            <label for="interest_design">Tasarım/UX</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_business" name="interests" value="İşletme">
+                            <label for="interest_business">İşletme/Girişimcilik</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_blockchain" name="interests" value="Blockchain">
+                            <label for="interest_blockchain">Blockchain/Crypto</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest_cloud" name="interests" value="Cloud/DevOps">
+                            <label for="interest_cloud">Cloud/DevOps</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn">📊 Planı Oluştur</button>
+                    <button type="reset" class="btn btn-secondary">Sıfırla</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- PLAN SONUCU -->
+        <div id="plan" class="content">
+            <div id="planContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Kariyer Planı. Tüm Hakları Saklıdır.</p>
+        <p>Kişiselleştirilmiş Kariyer Gelişim Programı</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function updateHourDisplay() {
+            const hours = document.getElementById('weeklyHours').value;
+            document.getElementById('hourDisplay').textContent = hours + ' saat';
+        }
+
+        function getCheckedValues(name) {
+            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+
+        function calculateScore(data) {
+            let score = 0;
+            
+            // Mevcut duruma göre puan
+            const jobScores = {
+                'yeni_baslayan': 40,
+                'farkli_sektorden': 60,
+                'ayni_sektorden': 80,
+                'ogrenci': 50,
+                'diger': 55
+            };
+            score += jobScores[data.currentJob] || 50;
+
+            // Güçlü yönlere göre
+            score += data.strengths.length * 5;
+
+            // Zaman faktörü
+            if (data.weeklyHours >= 20) score += 10;
+            if (data.weeklyHours >= 10) score += 5;
+
+            return Math.min(100, Math.max(0, score));
+        }
+
+        function generatePlan(data) {
+            const score = calculateScore(data);
+            const months = parseInt(data.timeFrame);
+            const monthlyGoals = {
+                3: 'Hızlı başlangıç',
+                6: 'Dengeli gelişim',
+                12: 'Uzman seviyesi',
+                18: 'Derinlemesine ustalaşma',
+                24: 'İndüstri lider'
+            };
+
+            let html = `
+                <div class="section">
+                    <h2>📊 Sizin İçin Oluşturulan Plan</h2>
+                </div>
+
+                <div class="result-card">
+                    <h3>🎯 Hazırlık Skoru: ${score}/100</h3>
+                    <p>${score >= 70 ? '✅ Güçlü başlangıç noktası!' : '⚠️ Dedikasyon gereklidir, ama başarılı olabilirsiniz!'}</p>
+                </div>
+
+                <div class="section">
+                    <h3>Hedef: ${data.targetField}</h3>
+                    <p><strong>Zaman Çerçevesi:</strong> ${months} ay (${monthlyGoals[months]})</p>
+                    <p><strong>Haftada:</strong> ${data.weeklyHours} saat çalışma</p>
+                </div>
+
+                <div class="section">
+                    <h3>✅ Güçlü Yönleriniz</h3>
+                    <div style="margin-bottom: 1rem;">
+                        ${data.strengths.map(s => `<span class="skill-chip">${s}</span>`).join('')}
+                    </div>
+                    <p>Bu güçlü yönlerinizi hedef alanında maximum şekilde kullanacağız!</p>
+                </div>
+
+                <div class="section">
+                    <h3>🎯 Geliştirilecek Alanlar</h3>
+                    <div style="margin-bottom: 1rem;">
+                        ${data.weaknesses.map(w => `<span class="skill-chip" style="background: #ff7a3d;">${w}</span>`).join('')}
+                    </div>
+                    <p>Bu alanlar sistematik şekilde kapatılacak.</p>
+                </div>
+
+                <div class="section">
+                    <h3>📅 ${months} Aylık Yol Haritası</h3>
+                    <div class="timeline">
+                        ${months >= 3 ? `
+                        <div class="timeline-item">
+                            <h4>Ay 1 - Temel Kurulum</h4>
+                            <p>Temel becerileri öğren, LinkedIn profilini optimize et, ilk projelerine başla.</p>
+                        </div>
+                        ` : ''}
+                        ${months >= 6 ? `
+                        <div class="timeline-item">
+                            <h4>Ay 2-3 - Sistem İnşası</h4>
+                            <p>Araçları öğren, ilk portfolyo projelerine başla, pratik yap.</p>
+                        </div>
+                        ` : ''}
+                        ${months >= 12 ? `
+                        <div class="timeline-item">
+                            <h4>Ay 4-6 - İlk Başarılar</h4>
+                            <p>İlk müşteri/işi al, portfolyo geliştir, ağ oluştur.</p>
+                        </div>
+                        ` : ''}
+                        ${months >= 18 ? `
+                        <div class="timeline-item">
+                            <h4>Ay 7-12 - Uzmanlaşma</h4>
+                            <p>İleri konuları öğren, müşteri/iş sayısını artır, marka oluştur.</p>
+                        </div>
+                        ` : ''}
+                        ${months >= 24 ? `
+                        <div class="timeline-item">
+                            <h4>Ay 13+ - İndüstri Lider</h4>
+                            <p>Düşünce liderliği, öğretme/mentoring, kendi ürün/hizmetler.</p>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📚 İlk Adımlar (Bu Hafta)</h3>
+                    <div class="plan-item">
+                        <h4>1. Temel Öğrenme Kaynağını Seç</h4>
+                        <p>${data.interests[0] ? `Sektörün en iyi ücretsiz kaynağını bulup 2 saat oku.` : 'Temel kaynakları keşfet.'}</p>
+                    </div>
+                    <div class="plan-item">
+                        <h4>2. LinkedIn Profilini Güncelle</h4>
+                        <p>Hedef alanını başlıkta belirt, hakkımda kısmını yazıl, ilk gönderiyi yap.</p>
+                    </div>
+                    <div class="plan-item">
+                        <h4>3. İlk Proje Fikrinde Karar Ver</h4>
+                        <p>Portfolyo için çalışacağın ilk projeyi seç ve başlamaya hazırlan.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>💡 Sana Özel Tavsiyeler</h3>
+                    ${data.currentJob === 'farkli_sektorden' ? '<div class="plan-item"><p>✅ Farklı sektörden gelmen senin avantajın! Ön deneyimini maksimum kullan.</p></div>' : ''}
+                    ${data.strengths.includes('Teknik Bilgi') ? '<div class="plan-item"><p>✅ Teknik bilgin var, bunu pazarlama açısından da geliştir.</p></div>' : ''}
+                    ${data.weeklyHours >= 20 ? '<div class="plan-item"><p>✅ Haftada 20+ saat ayırabiliyor olmak seninle derdin farkı açıyor!</p></div>' : ''}
+                    ${data.weeklyHours < 10 ? '<div class="plan-item"><p>⚠️ Haftada ${data.weeklyHours} saat az, ancak yine de başlamak önemli.</p></div>' : ''}
+                </div>
+
+                <div class="button-group">
+                    <button class="btn" onclick="window.print()">🖨️ Planı İndir (PDF)</button>
+                    <button class="btn btn-secondary" onclick="showSection('form')">📝 Anketi Yeniden Doldur</button>
+                </div>
+            `;
+
+            return html;
+        }
+
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                targetField: document.getElementById('targetField').value,
+                currentJob: document.getElementById('currentJob').value,
+                education: document.getElementById('education').value,
+                background: document.getElementById('background').value,
+                weeklyHours: document.getElementById('weeklyHours').value,
+                timeFrame: document.getElementById('timeFrame').value,
+                strengths: getCheckedValues('strengths'),
+                weaknesses: getCheckedValues('weaknesses'),
+                motivation: document.getElementById('motivation').value,
+                interests: getCheckedValues('interests')
+            };
+
+            // Plan'ı oluştur ve göster
+            const planHTML = generatePlan(formData);
+            document.getElementById('planContent').innerHTML = planHTML;
+            showSection('plan');
+        });
+
+        // Sayfa yüklendiğinde
+        window.addEventListener('load', () => {
+            updateHourDisplay();
+        });
+    </script>
+</body>
+</html>
