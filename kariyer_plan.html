@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Growth Marketer — Kariyer Dönüşüm Planı</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0f;--ink2:#1a1a1f;--ink3:#252530;
+  --paper:#f7f6f2;--paper2:#eeecea;--paper3:#e4e2dc;
+  --accent:#ff4d00;--accent2:#ff7a3d;--accent3:rgba(255,77,0,0.08);
+  --teal:#00b8a0;--teal3:rgba(0,184,160,0.08);
+  --purple:#7c5cfc;--purple3:rgba(124,92,252,0.08);
+  --amber:#f59e0b;--amber3:rgba(245,158,11,0.08);
+  --green:#16a34a;--green3:rgba(22,163,74,0.08);
+  --border:rgba(13,13,15,0.08);--border2:rgba(13,13,15,0.15);
+  --text:#0d0d0f;--muted:#6b6b7a;--dim:#a0a0ae;
+  --font:'Syne',sans-serif;--mono:'DM Mono',monospace;--body:'DM Sans',sans-serif;
+  --r:10px;--r2:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* SHELL */
+.shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{background:var(--ink);padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+.sidebar-top{padding:28px 22px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.logo-eyebrow{font-size:9px;font-family:var(--mono);color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.logo-title{font-size:14px;font-weight:700;font-family:var(--font);color:#fff;line-height:1.3}
+.nav-body{padding:14px 12px;flex:1}
+.nav-group{margin-bottom:6px}
+.nav-group-lbl{font-size:9px;font-family:var(--mono);color:rgba(255,255,255,0.25);letter-spacing:.14em;text-transform:uppercase;padding:8px 10px 5px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--r2);cursor:pointer;font-size:12.5px;color:rgba(255,255,255,0.45);transition:all .15s;margin-bottom:1px;font-family:var(--body);user-select:none}
+.nav-item:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.8)}
+.nav-item.active{background:var(--accent3);color:var(--accent);border:1px solid rgba(255,77,0,0.2)}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:.6}
+.sidebar-foot{padding:16px 22px;border-top:1px solid rgba(255,255,255,0.06)}
+.score-pill{background:rgba(255,77,0,0.12);border:1px solid rgba(255,77,0,0.25);border-radius:20px;padding:7px 14px;font-size:11px;font-family:var(--mono);color:var(--accent);text-align:center}
+
+/* MAIN */
+.main{overflow-y:auto;max-height:100vh}
+.page{display:none;animation:fadeUp .2s ease}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* HERO HEADER */
+.page-hero{padding:48px 44px 32px;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-size:10px;font-family:var(--mono);color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.hero-title{font-size:34px;font-weight:800;font-family:var(--font);color:var(--ink);line-height:1.15;margin-bottom:8px}
+.hero-sub{font-size:14px;color:var(--muted);line-height:1.6;max-width:620px}
+
+/* CONTENT AREA */
+.content{padding:32px 44px 60px}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:16px}
+.card-accent{border-left:3px solid var(--accent)}
+.card-teal{border-left:3px solid var(--teal)}
+.card-purple{border-left:3px solid var(--purple)}
+.card-amber{border-left:3px solid var(--amber)}
+.card-green{border-left:3px solid var(--green)}
+.card-title{font-size:13px;font-weight:600;font-family:var(--font);color:var(--ink);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-label{font-size:9px;font-family:var(--mono);color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+
+/* STAT CARDS */
+.stat{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.stat.s-accent::after{background:var(--accent)}
+.stat.s-teal::after{background:var(--teal)}
+.stat.s-purple::after{background:var(--purple)}
+.stat.s-amber::after{background:var(--amber)}
+.stat-lbl{font-size:10px;color:var(--muted);margin-bottom:6px;font-family:var(--mono)}
+.stat-val{font-size:28px;font-weight:700;font-family:var(--font);color:var(--ink)}
+.stat-sub{font-size:11px;color:var(--dim);margin-top:3px}
+
+/* TAGS */
+.tag{display:inline-block;font-size:10px;font-family:var(--mono);padding:2px 8px;border-radius:4px;font-weight:500}
+.tag-accent{background:var(--accent3);color:var(--accent)}
+.tag-teal{background:var(--teal3);color:var(--teal)}
+.tag-purple{background:var(--purple3);color:var(--purple)}
+.tag-amber{background:var(--amber3);color:var(--amber)}
+.tag-green{background:var(--green3);color:var(--green)}
+.tag-gray{background:var(--paper2);color:var(--muted)}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;font-family:var(--body)}
+
+/* PROGRESS */
+.prog-row{margin-bottom:12px}
+.prog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.prog-name{font-size:13px;color:var(--ink)}
+.prog-pct{font-size:11px;font-family:var(--mono);color:var(--muted)}
+.prog-track{height:4px;background:var(--paper2);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;transition:width 1.2s ease}
+
+/* LIST ITEMS */
+.list-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);line-height:1.5}
+.list-item:last-child{border:none}
+.list-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+.list-dot-teal{background:var(--teal)}
+.list-dot-purple{background:var(--purple)}
+
+/* NUMBERED LIST */
+.num-list{counter-reset:num;display:flex;flex-direction:column;gap:0}
+.num-item{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--border);counter-increment:num}
+.num-item:last-child{border:none}
+.num-item::before{content:counter(num,decimal-leading-zero);font-size:10px;font-family:var(--mono);color:var(--accent);font-weight:500;flex-shrink:0;padding-top:2px;min-width:22px}
+.num-text{font-size:13px;color:var(--muted);line-height:1.5;flex:1}
+.num-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--border2)}
+.tl-item{position:relative;padding:0 0 24px 20px}
+.tl-item::before{content:'';position:absolute;left:-18px;top:5px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--border2)}
+.tl-item.done::before{background:var(--teal);border-color:var(--teal)}
+.tl-item.current::before{background:var(--accent);border-color:var(--accent)}
+.tl-label{font-size:9px;font-family:var(--mono);color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.tl-title{font-size:14px;font-weight:600;font-family:var(--font);color:var(--ink);margin-bottom:4px}
+.tl-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* SKILL GRID */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:16px}
+.skill-chip{background:var(--paper2);border-radius:var(--r2);padding:8px 12px;font-size:12px;color:var(--ink);font-weight:500;border:1px solid var(--border);display:flex;align-items:center;gap:7px}
+.skill-chip.mastered{background:var(--teal3);border-color:rgba(0,184,160,0.2);color:var(--teal)}
+.skill-chip.learning{background:var(--amber3);border-color:rgba(245,158,11,0.2);color:var(--amber)}
+.skill-chip.needed{background:var(--accent3);border-color:rgba(255,77,0,0.2);color:var(--accent)}
+
+/* ACCORDION */
+.acc{background:#fff;border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.acc-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;user-select:none;transition:background .15s}
+.acc-head:hover{background:var(--paper)}
+.acc-left{display:flex;align-items:center;gap:12px}
+.acc-icon{font-size:17px;width:20px;text-align:center}
+.acc-title{font-size:14px;font-weight:600;font-family:var(--font);color:var(--ink)}
+.acc-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.acc-arrow{font-size:11px;color:var(--dim);transition:transform .2s}
+.acc.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;border-top:1px solid var(--border);padding:18px;background:var(--paper)}
+.acc.open .acc-body{display:block}
+
+/* TOOL CARD */
+.tool-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.tool-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tool-name{font-size:14px;font-weight:600;font-family:var(--font);color:var(--ink)}
+.tool-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.tool-use{font-size:11px;color:var(--teal);font-family:var(--mono)}
+
+/* WEEK SCHEDULE */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day-col{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:12px 10px}
+.day-name{font-size:9px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;margin-bottom:8px;letter-spacing:.08em}
+.day-block{font-size:11px;color:var(--muted);padding:5px 7px;border-radius:4px;margin-bottom:4px;line-height:1.4}
+.db-accent{background:var(--accent3);color:var(--accent);border:1px solid rgba(255,77,0,0.15)}
+.db-teal{background:var(--teal3);color:var(--teal);border:1px solid rgba(0,184,160,0.15)}
+.db-purple{background:var(--purple3);color:var(--purple);border:1px solid rgba(124,92,252,0.15)}
+.db-amber{background:var(--amber3);color:var(--amber);border:1px solid rgba(245,158,11,0.15)}
+.db-gray{background:var(--paper2);color:var(--muted)}
+
+/* BUTTONS */
+.btn{padding:8px 16px;border-radius:var(--r2);border:none;font-family:var(--body);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent2)}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}.btn-ghost:hover{color:var(--ink);border-color:var(--border2)}
+
+/* DIVIDER */
+.sep{height:1px;background:var(--border);margin:20px 0}
+
+/* SECTION TITLE */
+.sec-title{font-size:18px;font-weight:700;font-family:var(--font);color:var(--ink);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+
+/* ALERT */
+.alert{padding:12px 16px;border-radius:var(--r2);font-size:13px;margin-bottom:16px;line-height:1.6}
+.alert-accent{background:var(--accent3);border:1px solid rgba(255,77,0,0.15);color:var(--accent)}
+.alert-teal{background:var(--teal3);border:1px solid rgba(0,184,160,0.15);color:var(--teal)}
+.alert-green{background:var(--green3);border:1px solid rgba(22,163,74,0.15);color:var(--green)}
+
+/* PROJECT CARDS */
+.proj-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:6px}
+.proj-num{font-size:9px;font-family:var(--mono);color:var(--accent);letter-spacing:.1em}
+.proj-title{font-size:13px;font-weight:600;color:var(--ink)}
+.proj-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px}
+
+/* RESOURCE ROW */
+.res-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.res-row:last-child{border:none}
+.res-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.res-info{flex:1}
+.res-name{font-size:13px;color:var(--ink);font-weight:500}
+.res-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.res-badge{font-size:10px;font-family:var(--mono);padding:2px 8px;border-radius:4px;flex-shrink:0}
+
+/* ADVANTAGE / GAP */
+.adv-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.adv-item:last-child{border:none}
+.adv-icon{font-size:16px;flex-shrink:0}
+.adv-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.adv-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* SCROLL FIX */
+.scroll-y{max-height:360px;overflow-y:auto;padding-right:4px}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-top">
+    <div class="logo-eyebrow">Kariyer Dönüşüm Planı</div>
+    <div class="logo-title">AI Growth &<br>Content Systems</div>
+  </div>
+  <div class="nav-body">
+    <div class="nav-group">
+      <div class="nav-group-lbl">Genel Bakış</div>
+      <div class="nav-item active" onclick="go('genel',this)"><span class="nav-dot"></span>Dashboard</div>
+      <div class="nav-item" onclick="go('pozisyon',this)"><span class="nav-dot"></span>Pozisyon Analizi</div>
+      <div class="nav-item" onclick="go('durum',this)"><span class="nav-dot"></span>Mevcut Durum Analizi</div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-lbl">Beceriler & Araçlar</div>
+      <div class="nav-item" onclick="go('beceriler',this)"><span class="nav-dot"></span>Teknik Beceriler</div>
+      <div class="nav-item" onclick="go('araclar',this)"><span class="nav-dot"></span>Araçlar Rehberi</div>
+      <div class="nav-item" onclick="go('ogrenme',this)"><span class="nav-dot"></span>Öğrenme Sırası</div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-lbl">Planlar</div>
+      <div class="nav-item" onclick="go('plan6',this)"><span class="nav-dot"></span>6 Aylık Plan</div>
+      <div class="nav-item" onclick="go('plan12',this)"><span class="nav-dot"></span>12 Aylık Plan</div>
+      <div class="nav-item" onclick="go('haftalik',this)"><span class="nav-dot"></span>Haftalık Program</div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-lbl">Büyüme</div>
+      <div class="nav-item" onclick="go('portfolio',this)"><span class="nav-dot"></span>20 Portfolyo Projesi</div>
+      <div class="nav-item" onclick="go('linkedin',this)"><span class="nav-dot"></span>LinkedIn & Marka</div>
+      <div class="nav-item" onclick="go('kaynaklar',this)"><span class="nav-dot"></span>Kaynaklar</div>
+    </div>
+  </div>
+  <div class="sidebar-foot">
+    <div class="score-pill">🔥 Hazırlık Skoru: 62/100</div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- DASHBOARD -->
+<div id="genel" class="page active">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Analiz Tamamlandı</div>
+    <div class="hero-title">AI Growth Marketer<br>Kariyer Dönüşümü</div>
+    <div class="hero-sub">Kimya mühendisliği + teknik satış geçmişinle AI destekli pazarlama dünyasına geçiş planı. 6 ayda iş alabilir, 12 ayda uzman olabilirsin.</div>
+  </div>
+  <div class="content">
+    <div class="g4">
+      <div class="stat s-accent"><div class="stat-lbl">Hazırlık Skoru</div><div class="stat-val">62<span style="font-size:16px;color:var(--muted)">/100</span></div><div class="stat-sub">İyi başlangıç noktası</div></div>
+      <div class="stat s-teal"><div class="stat-lbl">Avantaj Sayısı</div><div class="stat-val">7</div><div class="stat-sub">Güçlü yönlerin</div></div>
+      <div class="stat s-purple"><div class="stat-lbl">Öğrenilecek Alan</div><div class="stat-val">12</div><div class="stat-sub">Araç & beceri</div></div>
+      <div class="stat s-amber"><div class="stat-lbl">Portfolyo Projesi</div><div class="stat-val">20</div><div class="stat-sub">Hazır fikir</div></div>
+    </div>
+    <div class="alert alert-teal">✦ Kimya mühendisi + teknik satış geçmişi seni rakiplerinden ayırıyor. Teknik içerik üretmek, kompleks ürünleri anlatmak ve B2B kitleye ulaşmak için doğal avantajın var.</div>
+
+    <div class="g2">
+      <div class="card card-accent">
+        <div class="card-title">Bu İş Nedir?</div>
+        <div class="list-item"><div class="list-dot"></div><div><strong>Resmi adı:</strong> AI Marketing Specialist / Growth Content Manager / Content Systems Architect</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>Türkiye'de yeni yeni oturan bir pozisyon — 2024 sonrası hızla büyüdü</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>AI araçlarıyla içerik sistemleri kuruyor, sosyal medya + SEO + otomasyon yönetiyor</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>Maaş aralığı: 25k–80k TL / ay (deneyime göre) veya freelance 1000–5000$/proje</div></div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-title">Senin Avantajın</div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Teknik ürünleri anlayıp anlatabilirsin — çoğu içerik üreticisi bu alanda körleşiyor</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>B2B satış deneyimi — müşteri zihniyetini içgüdüsel anlıyorsun</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Analitik düşünme — mühendislik eğitimi veri okumayı kolaylaştırır</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Canva + AI araçlara ilgi — başlangıç adımın atılmış</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">Kariyer Yolları</div>
+    <div class="sec-sub">Bu geçmişten gidebileceğin 3 farklı yön</div>
+    <div class="g3">
+      <div class="card card-accent">
+        <div class="card-label">Yol A — En hızlı</div>
+        <div class="card-title" style="font-size:15px">AI Marketing Specialist</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px">İçerik + AI araçlar + sosyal medya yönetimi. 6 ayda ilk iş.</div>
+        <div class="tag tag-accent">6 ay</div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-label">Yol B — En değerli</div>
+        <div class="card-title" style="font-size:15px">Growth Hacker</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px">Startup büyüme stratejisi + otomasyon + analytics. 9–12 ay.</div>
+        <div class="tag tag-purple">12 ay</div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-label">Yol C — Uzun vadeli</div>
+        <div class="card-title" style="font-size:15px">Content Systems Architect</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px">Tüm içerik altyapısını kurar, AI agent sistemleri yazar. 12–18 ay.</div>
+        <div class="tag tag-teal">18 ay</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Hızlı Durum Özeti</div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">✅ Zaten Sahip Olduklarım</div>
+        <div class="skill-grid">
+          <div class="skill-chip mastered">✓ Teknik anlama</div>
+          <div class="skill-chip mastered">✓ B2B satış</div>
+          <div class="skill-chip mastered">✓ Canva temeli</div>
+          <div class="skill-chip mastered">✓ AI araç ilgisi</div>
+          <div class="skill-chip mastered">✓ İletişim</div>
+          <div class="skill-chip mastered">✓ Analitik düşünme</div>
+          <div class="skill-chip learning">⚡ LinkedIn (öğreniyor)</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🎯 Öğrenmem Gerekenler</div>
+        <div class="skill-grid">
+          <div class="skill-chip needed">n8n / Make</div>
+          <div class="skill-chip needed">Prompt Müh.</div>
+          <div class="skill-chip needed">SEO temeli</div>
+          <div class="skill-chip needed">ChatGPT API</div>
+          <div class="skill-chip needed">Midjourney</div>
+          <div class="skill-chip needed">Analytics</div>
+          <div class="skill-chip needed">Growth loops</div>
+          <div class="skill-chip needed">AI Agents</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POZİSYON ANALİZİ -->
+<div id="pozisyon" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Pozisyon Analizi</div>
+    <div class="hero-title">Bu İş Gerçekte<br>Ne Demek?</div>
+    <div class="hero-sub">İş ilanının arkasındaki gerçek roller, sorumluluklar ve kariyer seviyeleri.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">Pozisyonun Gerçek Adı</div>
+    <div class="sec-sub">Bu ilan aslında 3 farklı rolü tek kişide arıyor</div>
+    <div class="g3">
+      <div class="card card-accent">
+        <div class="card-label">Rol 1</div>
+        <div class="card-title">AI Marketing Specialist</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">AI araçlarla içerik üretir, sosyal medya kanallarını yönetir, kampanyaları optimize eder. En yaygın unvan.</div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-label">Rol 2</div>
+        <div class="card-title">Growth Content Manager</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">İçeriği büyüme metriğine bağlar. Hangi içerik lead üretiyor, hangisi conversion sağlıyor — bunları takip eder.</div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-label">Rol 3</div>
+        <div class="card-title">Content Systems Architect</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">Tüm içerik üretim altyapısını kurar. AI + otomasyon + insan birlikteliğini sistemleştirir.</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Günlük İş Akışı</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="num-list">
+        <div class="num-item"><div class="num-text"><div class="num-title">Sabah: İçerik üretimi bloğu (2–3 saat)</div>ChatGPT/Claude ile LinkedIn, Instagram, blog için içerik brief'i hazırla. AI ile taslakları üret, düzenle, görsel için Midjourney prompt yaz.</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Öğle: Yayın & etkileşim (1 saat)</div>İçerikleri yayınla, yorumları yönet, etkileşim analiz et. Buffer/Hootsuite ile zamanlama yap.</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Öğleden sonra: Analiz & otomasyon (2 saat)</div>Analytics verilerini oku. n8n workflow'larını güncelle. Haber bültenlerini AI ile hazırla.</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Akşam: Strateji & öğrenme (1 saat)</div>Gelecek haftanın içerik takvimini planla. Yeni AI araçları dene. Rakip analizi yap.</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">Kariyer Seviyeleri</div>
+    <div class="g3">
+      <div class="card card-accent">
+        <div class="card-label">Junior (0–1 yıl)</div>
+        <div class="card-title">Ne Yapar?</div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot"></div><div style="font-size:12px;color:var(--muted)">Hazır prompt'larla içerik üretir</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot"></div><div style="font-size:12px;color:var(--muted)">Canva ile görsel hazırlar</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot"></div><div style="font-size:12px;color:var(--muted)">Sosyal medya takvimine göre yayınlar</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot"></div><div style="font-size:12px;color:var(--muted)">Basit n8n workflow'ları kullanır</div></div>
+        <div style="margin-top:10px"><div class="tag tag-accent">25–35k TL/ay</div></div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-label">Mid (1–3 yıl)</div>
+        <div class="card-title">Ne Yapar?</div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-purple"></div><div style="font-size:12px;color:var(--muted)">Kendi prompt sistemleri yazar</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-purple"></div><div style="font-size:12px;color:var(--muted)">İçerik stratejisi tasarlar</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-purple"></div><div style="font-size:12px;color:var(--muted)">Kompleks otomasyonlar kurar</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-purple"></div><div style="font-size:12px;color:var(--muted)">A/B test yönetir, analiz sunar</div></div>
+        <div style="margin-top:10px"><div class="tag tag-purple">45–65k TL/ay</div></div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-label">Senior (3+ yıl)</div>
+        <div class="card-title">Ne Yapar?</div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-teal"></div><div style="font-size:12px;color:var(--muted)">AI Agent sistemleri geliştirir</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-teal"></div><div style="font-size:12px;color:var(--muted)">Growth stratejisi kurar</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-teal"></div><div style="font-size:12px;color:var(--muted)">Ekip kurar ve yönetir</div></div>
+        <div class="list-item" style="padding:5px 0"><div class="list-dot list-dot-teal"></div><div style="font-size:12px;color:var(--muted)">Danışmanlık / kendi ajansı</div></div>
+        <div style="margin-top:10px"><div class="tag tag-teal">80k+ TL/ay veya $3–10k freelance</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DURUM ANALİZİ -->
+<div id="durum" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Mevcut Durum</div>
+    <div class="hero-title">Seni Analiz Ettim:<br>62/100</div>
+    <div class="hero-sub">Kimya mühendisliği + teknik satış = rakiplerinden 2 adım öndesin. Ama bazı kritik boşluklar var.</div>
+  </div>
+  <div class="content">
+    <div class="alert alert-green">✅ 62/100 = Güçlü başlangıç. Ortalamanın üzerinde. Çoğu AI içerikçi adayı sıfırdan başlıyor — senin teknik zeminiv ve satış deneyimin gerçek bir silah.</div>
+
+    <div class="sec-title">Avantajların — Bunları Kullan</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="adv-item">
+        <div class="adv-icon">⚗️</div>
+        <div><div class="adv-title">Kimya Mühendisliği Mezunu</div><div class="adv-desc">Kompleks teknik konuları anlayıp sadeleştirebilirsin. Endüstriyel SaaS, üretim teknolojisi, süreç otomasyonu alanlarında içerik üretmek sana çok daha kolay gelir. "Teknik içerikçi" nişi çok değerli ve nadir.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">📞</div>
+        <div><div class="adv-title">Teknik Saha Satış Deneyimi</div><div class="adv-desc">Müşterinin ne düşündüğünü, hangi itirazları öne sürdüğünü, hangi bilgilerin karar verdirdiğini biliyorsun. Bu içerik stratejisi için altın değerinde. Conversion odaklı içerik yazmak için en kritik beceri müşteri psikolojisi — bunu zaten yaşayarak öğrendin.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🎨</div>
+        <div><div class="adv-title">Canva Kullanıyorsun</div><div class="adv-desc">Birçok aday sıfırdan başlıyor. Görsel tasarım temeli var — bunu Midjourney, Adobe Express ve marka kiti oluşturma yönünde hızla geliştirebilirsin.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🤖</div>
+        <div><div class="adv-title">AI Araçlara Gerçek İlgi</div><div class="adv-desc">Bu alan sahte ilgiyle çalışmaz. Gerçekten merak etmen öğrenme hızını 3x artırıyor. ChatGPT, Claude, n8n'i merak ederek öğrenen biri, zorla öğrenen birine karşı 6 ayda dağ gibi fark açıyor.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">📊</div>
+        <div><div class="adv-title">Analitik Düşünme Alışkanlığı</div><div class="adv-desc">Mühendislik eğitimi veri okumayı, hipotez kurmayı, sebep-sonuç bağı kurmayı öğretiyor. Growth marketing tamamen A/B test, funnel analizi ve veri yorumlama üzerine kurulu — bu alanda doğal avantajın var.</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">Eksiklerin — Kapatılabilir Boşluklar</div>
+    <div class="card card-accent" style="margin-bottom:16px">
+      <div class="adv-item">
+        <div class="adv-icon">🔴</div>
+        <div><div class="adv-title">Prompt Mühendisliği (Kritik Eksik)</div><div class="adv-desc">ChatGPT'yi basit sorular için kullanmak yetmez. Sistem promptları yazmak, few-shot örnekler vermek, çıktıyı yönlendirmek — bunlar profesyonel seviyede gerekiyor. 2–4 hafta odaklı çalışma yeterli.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🔴</div>
+        <div><div class="adv-title">n8n / Make Otomasyonu (Kritik Eksik)</div><div class="adv-desc">İş ilanındaki en kritik teknik beceri. Bu araçlarsız "sistem kuruyorum" diyemezsin. 3–6 hafta düzenli çalışmayla temel seviyeye gelebilirsin.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🟡</div>
+        <div><div class="adv-title">SEO Temeli (Orta Öncelik)</div><div class="adv-desc">Blog içerik üretmek için temel SEO bilgisi şart. Anahtar kelime araştırması, meta description, başlık hiyerarşisi. 1–2 hafta yeterli.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🟡</div>
+        <div><div class="adv-title">Analytics Okuma (Orta Öncelik)</div><div class="adv-desc">Google Analytics 4, LinkedIn Analytics, Instagram Insights'ı okuyup yorumlayabilmek. 1 hafta pratik yaparak öğrenilir.</div></div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🟢</div>
+        <div><div class="adv-title">Midjourney (Düşük Öncelik)</div><div class="adv-desc">Görsel üretmek güçlü ama opsiyonel. Canva + Ideogram + DALL-E ile başlayabilirsin. Midjourney'e geçiş 2–3 haftada olur.</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">Hazırlık Skoru Detayı</div>
+    <div class="card">
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">Teknik anlama & B2B iletişim</span><span class="prog-pct">90%</span></div><div class="prog-track"><div class="prog-fill" style="width:90%;background:var(--teal)"></div></div></div>
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">Görsel içerik (Canva)</span><span class="prog-pct">50%</span></div><div class="prog-track"><div class="prog-fill" style="width:50%;background:var(--teal)"></div></div></div>
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">AI araç kullanımı (genel)</span><span class="prog-pct">40%</span></div><div class="prog-track"><div class="prog-fill" style="width:40%;background:var(--amber)"></div></div></div>
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">Prompt mühendisliği</span><span class="prog-pct">20%</span></div><div class="prog-track"><div class="prog-fill" style="width:20%;background:var(--accent)"></div></div></div>
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">Otomasyon (n8n/Make)</span><span class="prog-pct">5%</span></div><div class="prog-track"><div class="prog-fill" style="width:5%;background:var(--accent)"></div></div></div>
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">SEO & Analytics</span><span class="prog-pct">15%</span></div><div class="prog-track"><div class="prog-fill" style="width:15%;background:var(--accent)"></div></div></div>
+      <div class="prog-row"><div class="prog-head"><span class="prog-name">Growth marketing</span><span class="prog-pct">25%</span></div><div class="prog-track"><div class="prog-fill" style="width:25%;background:var(--amber)"></div></div></div>
+      <div class="prog-row" style="margin-bottom:0"><div class="prog-head"><span class="prog-name">LinkedIn kişisel marka</span><span class="prog-pct">30%</span></div><div class="prog-track"><div class="prog-fill" style="width:30%;background:var(--amber)"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BECERİLER -->
+<div id="beceriler" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Beceriler</div>
+    <div class="hero-title">Neyi, Neden<br>Öğrenmelisin?</div>
+    <div class="hero-sub">Her rol için gereken teknik ve soft skill listesi, öncelik sıralamasıyla.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">AI Marketing Specialist Becerileri</div>
+    <div class="g2" style="margin-bottom:20px">
+      <div class="card card-accent">
+        <div class="card-title">Teknik Beceriler</div>
+        <div class="list-item"><div class="list-dot"></div><div>Prompt mühendisliği (sistem prompt, few-shot, chain-of-thought)</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>ChatGPT / Claude API bağlantısı</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>n8n / Make / Zapier ile otomasyon</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>Temel SEO (Semrush, Ahrefs ücretsiz plan)</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>Google Analytics 4 okuma</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>Görsel üretim (Midjourney, DALL-E, Ideogram)</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>İçerik takvimi araçları (Notion, Airtable)</div></div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-title">Soft Skills</div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Hikaye anlatıcılığı (Storytelling) — en kritik</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Veri yorumlama — hangi metrik neyi gösteriyor</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Hızlı öğrenme — AI haftada değişiyor</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Müşteri empatiyle yazma (copywriting temeli)</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Proje yönetimi — birden fazla kanal yönetmek</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Test & deney kültürü — A/B testi normalleştirmek</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">Growth Hacker Becerileri</div>
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">📈</span><div><div class="acc-title">Growth Hacker — Full Liste</div><div class="acc-sub">Startup büyüme mekaniklerini yöneten uzman</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:8px">Büyüme Stratejisi</div>
+            <div class="list-item"><div class="list-dot"></div><div>AARRR framework (Acquisition, Activation, Retention, Revenue, Referral)</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Product-led growth (PLG) mekanikleri</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Viral loop tasarımı</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>North Star Metric belirleme</div></div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:8px">Teknik Beceriler</div>
+            <div class="list-item"><div class="list-dot"></div><div>Funnel analizi ve optimizasyon</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Landing page A/B testi</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Email automation (Mailchimp, ActiveCampaign)</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>SEO + SEM temel anlayışı</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">🏗️</span><div><div class="acc-title">Content Systems Architect — Full Liste</div><div class="acc-sub">İçerik altyapısını sıfırdan kuran mimar</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:8px">Sistem Tasarımı</div>
+            <div class="list-item"><div class="list-dot"></div><div>İçerik operasyon akışı tasarımı (SOP yazma)</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>AI + insan hibrit üretim modeli</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Çok kanallı dağıtım otomasyonu</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Brand voice sistemi oluşturma</div></div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:8px">AI Agent Sistemleri</div>
+            <div class="list-item"><div class="list-dot"></div><div>LangChain temeli</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Otonom içerik üretim pipeline'ı</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>Vektör veritabanı (Pinecone, Qdrant)</div></div>
+            <div class="list-item"><div class="list-dot"></div><div>RAG sistemi (şirket bilgisi + AI)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARAÇLAR -->
+<div id="araclar" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Araçlar Rehberi</div>
+    <div class="hero-title">Hangi Araç,<br>Ne İşe Yarar?</div>
+    <div class="hero-sub">Her aracın rolü, öğrenme süresi ve öncelik sırası.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">AI İçerik Araçları</div>
+    <div class="g2" style="margin-bottom:20px">
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">ChatGPT (GPT-4o)</div><div class="tag tag-accent">ÖNCELİK 1</div></div>
+        <div class="tool-desc">İçerik üretiminin çekirdeği. Yazı, taslak, fikir üretimi, SEO meta description, email yazma. Prompt mühendisliği öğrenilince 10x daha güçlü hale gelir.</div>
+        <div class="tool-use">Kullanım: LinkedIn post → Blog → Email şablonu</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Claude (Anthropic)</div><div class="tag tag-accent">ÖNCELİK 1</div></div>
+        <div class="tool-desc">Uzun form içerik, rapor, strateji dokümanı için ChatGPT'den daha güçlü. Dosya analizi yapabiliyor. Büyük prompt bağlamı (200k token) rakip analizi için mükemmel.</div>
+        <div class="tool-use">Kullanım: Uzun içerik → Strateji → Veri analizi</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Perplexity AI</div><div class="tag tag-teal">ÖNCELİK 2</div></div>
+        <div class="tool-desc">Gerçek zamanlı araştırma motoru. İçerik için güncel istatistik, kaynak, trend araştırması. Rakip analizi için vazgeçilmez. Kaynaklı cevap veriyor.</div>
+        <div class="tool-use">Kullanım: Araştırma → Güncel veri → Kaynak bulma</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Midjourney</div><div class="tag tag-purple">ÖNCELİK 3</div></div>
+        <div class="tool-desc">En kaliteli AI görsel üretici. LinkedIn ve blog için profesyonel görseller. Öğrenme eğrisi var ama sonuç stok fotoğraftan üstün. Discord üzerinden çalışıyor.</div>
+        <div class="tool-use">Kullanım: Blog kapak → LinkedIn görsel → Infografik arka plan</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Otomasyon Araçları</div>
+    <div class="g2" style="margin-bottom:20px">
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">n8n</div><div class="tag tag-accent">KRİTİK</div></div>
+        <div class="tool-desc">Açık kaynak otomasyon aracı. Kendi sunucunda veya cloud'da çalıştırabilirsin. Zapier'den güçlü, ücretsiz plan var. AI + API + sosyal medya bağlantıları kurabilirsin. İş ilanında direkt geçiyor.</div>
+        <div class="tool-use">Kullanım: İçerik üret → Otomatik yayınla → Lead verisini işle</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Make (Integromat)</div><div class="tag tag-accent">KRİTİK</div></div>
+        <div class="tool-desc">Görsel otomasyon platformu. n8n'den daha kolay arayüz. Türk startup ekosisteminde çok kullanılıyor. 1000 operasyon/ay ücretsiz. n8n ile birlikte öğren.</div>
+        <div class="tool-use">Kullanım: Form → CRM → Email → Bildirim zinciri</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Zapier</div><div class="tag tag-amber">ORTA</div></div>
+        <div class="tool-desc">En kolay otomasyon aracı. Kod bilmeden 2 uygulama bağlayabilirsin. Pahalı ama müşteri projelerinde tercih ediliyor çünkü herkes biliyor.</div>
+        <div class="tool-use">Kullanım: Müşteri demo'ları → Hızlı prototip</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Airtable / Notion</div><div class="tag tag-teal">VERİ YÖNETİMİ</div></div>
+        <div class="tool-desc">İçerik takvimi, müşteri takibi, proje yönetimi. Airtable veritabanı özelliği daha güçlü. Notion daha esnek. İkisini de bilen kişi otomasyon entegrasyonu kolayca kurar.</div>
+        <div class="tool-use">Kullanım: İçerik takvimi → CRM → Proje takibi</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Analitik & SEO Araçları</div>
+    <div class="g3" style="margin-bottom:20px">
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Google Analytics 4</div><div class="tag tag-teal">ÜCRETSİZ</div></div>
+        <div class="tool-desc">Web sitesi trafiği, kullanıcı davranışı, dönüşüm takibi. Her içerikçinin bilmesi gereken temel araç.</div>
+        <div class="tool-use">Web trafik analizi</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Semrush / Ahrefs</div><div class="tag tag-amber">ORTA</div></div>
+        <div class="tool-desc">SEO anahtar kelime araştırması, rakip analizi, backlink takibi. Ücretsiz planları temel işler için yeterli.</div>
+        <div class="tool-use">SEO araştırma</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header"><div class="tool-name">Buffer / Hootsuite</div><div class="tag tag-teal">ÜCRETSİZ PLAN</div></div>
+        <div class="tool-desc">Sosyal medya zamanlaması ve analiz. Buffer ücretsiz planı 3 kanal için yeterli. Gönderi performansını takip et.</div>
+        <div class="tool-use">Sosyal medya yönetimi</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ÖĞRENME SIRASI -->
+<div id="ogrenme" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Öğrenme Sırası</div>
+    <div class="hero-title">Önce Ne,<br>Sonra Ne?</div>
+    <div class="hero-sub">Her konunun öğrenme süresi, neden önemli olduğu ve nereden öğrenileceği.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">Öğrenme Sırası — Adım Adım</div>
+
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">1️⃣</span><div><div class="acc-title">Prompt Mühendisliği</div><div class="acc-sub">2–3 hafta · Tüm sistemin temeli</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div class="card-label">Neden Önemli</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6">Tüm AI sistemlerinin temeli. İyi prompt yazan biri kötü prompt yazana göre 5–10x daha iyi çıktı alıyor. İçerik, otomasyon, AI agent — hepsinde bu beceri kullanılıyor.</p>
+            <div class="sep"></div>
+            <div class="card-label">Yapılacak Proje</div>
+            <p style="font-size:13px;color:var(--muted)">Kendi sektörün için 10 farklı LinkedIn post tipi için sistem prompt kütüphanesi oluştur.</p>
+          </div>
+          <div>
+            <div class="card-label">Ücretsiz Kaynaklar</div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Learn Prompting (learnprompting.org)</div><div class="res-sub">En kapsamlı ücretsiz kaynak</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Anthropic Prompt Library</div><div class="res-sub">Hazır prompt şablonları</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--amber)"></div><div class="res-info"><div class="res-name">DeepLearning.AI — ChatGPT Prompt Engineering</div><div class="res-sub">Ücretsiz kurs (2 saat)</div></div></div>
+            <div class="sep"></div>
+            <div class="card-label">Tahmini Süre</div>
+            <div class="tag tag-accent">2–3 hafta / günde 45 dk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">2️⃣</span><div><div class="acc-title">n8n Otomasyon</div><div class="acc-sub">3–4 hafta · İlk çalışan sistemi kuracaksın</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div class="card-label">Neden Önemli</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6">Manuel tekrarlayan işleri (içerik dağıtımı, lead bildirim, veri toplama) otomatize etmek = değer üretmek. Bunu yapabilenler nadir.</p>
+            <div class="sep"></div>
+            <div class="card-label">Yapılacak Proje</div>
+            <p style="font-size:13px;color:var(--muted)">RSS → ChatGPT özet → Telegram/Slack bildirimi pipeline'ı kur. Sonra: LinkedIn post → n8n → otomatik kaydet → haftalık rapor.</p>
+          </div>
+          <div>
+            <div class="card-label">Ücretsiz Kaynaklar</div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">n8n.io/docs resmi dokümantasyon</div><div class="res-sub">Tüm node'lar açıklamalı</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Leon van Zyl — YouTube</div><div class="res-sub">En iyi n8n Türkçe/İngilizce kanal</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--amber)"></div><div class="res-info"><div class="res-name">n8n Community Forum</div><div class="res-sub">Hazır workflow şablonları</div></div></div>
+            <div class="sep"></div>
+            <div class="card-label">Tahmini Süre</div>
+            <div class="tag tag-accent">3–4 hafta / günde 1 saat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">3️⃣</span><div><div class="acc-title">LinkedIn İçerik Stratejisi</div><div class="acc-sub">2 hafta + sürekli pratik</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div class="card-label">Neden Önemli</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6">Hem portfolyo oluşturuyorsun hem müşteri çekiyorsun. Teknik satış + AI içerik kombinasyonu LinkedIn'de nadir bir niş — rakibin az.</p>
+            <div class="sep"></div>
+            <div class="card-label">Yapılacak Proje</div>
+            <p style="font-size:13px;color:var(--muted)">30 günde 30 gönderi serisi: "Kimya mühendisinden AI içerikçiye" dönüşüm hikayesi.</p>
+          </div>
+          <div>
+            <div class="card-label">Ücretsiz Kaynaklar</div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Richard van der Blom — LinkedIn</div><div class="res-sub">Algoritma rehberi (2024 güncel)</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Justin Welsh — The LinkedIn OS</div><div class="res-sub">Sistematik büyüme (ücretli ama değerli)</div></div></div>
+            <div class="sep"></div>
+            <div class="card-label">Tahmini Süre</div>
+            <div class="tag tag-teal">2 hafta teori + sürekli pratik</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">4️⃣</span><div><div class="acc-title">SEO Temeli & Analytics</div><div class="acc-sub">2 hafta · Blog içeriği için şart</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div class="card-label">Neden Önemli</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6">Blog ve web içeriği yazmak için anahtar kelime araştırması şart. Organik trafik üretemeyen içerikçi sadece sosyal medya platformuna bağımlı kalır.</p>
+          </div>
+          <div>
+            <div class="card-label">Ücretsiz Kaynaklar</div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Ahrefs — SEO for Beginners</div><div class="res-sub">YouTube playlist, ücretsiz</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Google Analytics Academy</div><div class="res-sub">GA4 resmi ücretsiz kurs</div></div></div>
+            <div class="sep"></div>
+            <div class="card-label">Tahmini Süre</div>
+            <div class="tag tag-amber">2 hafta / günde 30 dk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="acc-left"><span class="acc-icon">5️⃣</span><div><div class="acc-title">AI Agent Sistemleri</div><div class="acc-sub">4–6 hafta · Senior seviye beceri</div></div></div>
+        <div class="acc-arrow">▾</div>
+      </div>
+      <div class="acc-body">
+        <div class="g2">
+          <div>
+            <div class="card-label">Neden Önemli</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6">2025'in en değerli becerisi. Otonom içerik üretim sistemleri, müşteri chatbotları, araştırma agentları. Bunu yapabilen az kişi var.</p>
+          </div>
+          <div>
+            <div class="card-label">Ücretsiz Kaynaklar</div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">DeepLearning.AI — AI Agents kursları</div><div class="res-sub">Andrew Ng serisi, ücretsiz</div></div></div>
+            <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">n8n AI Agent node'ları</div><div class="res-sub">Kodsuz agent kurulumu</div></div></div>
+            <div class="sep"></div>
+            <div class="card-label">Tahmini Süre</div>
+            <div class="tag tag-purple">4–6 hafta / günde 1 saat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 AYLIK PLAN -->
+<div id="plan6" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">6 Aylık Plan</div>
+    <div class="hero-title">Ay Ay<br>Ne Yapacaksın?</div>
+    <div class="hero-sub">Sıfırdan iş alabilir seviyeye ulaşmak için ay ay hedefler.</div>
+  </div>
+  <div class="content">
+    <div class="timeline">
+      <div class="tl-item current">
+        <div class="tl-label">Ay 1 — Şimdi</div>
+        <div class="tl-title">Temel Kurulum</div>
+        <div class="tl-desc">Prompt mühendisliği öğren (learnprompting.org + DeepLearning). LinkedIn profili optimize et. Haftada 3 LinkedIn gönderisi başlat. n8n cloud hesabı aç, ilk 2 workflow kur. Canva brand kit oluştur. 5 blog post AI ile yaz (kendi sitene ya da Medium'a).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 2</div>
+        <div class="tl-title">Sistem İnşası</div>
+        <div class="tl-desc">İçerik üretim pipeline'ı kur (ChatGPT → Canva → Buffer → Yayın otomatik). Make.com öğren. SEO temeli tamamla. İlk AI Agent kur (n8n + OpenAI). Portfolyo için 3 gerçek proje başlat. Instagram içerik ritmi kur (haftada 4).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 3</div>
+        <div class="tl-title">Portfolyo İnşası</div>
+        <div class="tl-desc">5 case study tamamla (gerçek sonuçlar). Midjourney öğren ve görsel kütüphane oluştur. Bir startup/KOBİ için ücretsiz pilot proje yap (referans için). LinkedIn'de 500+ takipçi hedefi. İlk freelance teklifini hazırla.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 4</div>
+        <div class="tl-title">İlk Müşteri</div>
+        <div class="tl-desc">İlk ücretli müşteri veya iş görüşmesi. Growth marketing framework'ü öğren (AARRR, PLG). AI Agent sistemini müşteriye sun. Analytics raporlama şablonu hazırla. Upwork/Bionluk'ta profil aç.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 5</div>
+        <div class="tl-title">Derinleşme</div>
+        <div class="tl-desc">Startup büyüme mekaniği öğren (Reforge blog + Y Combinator içerikleri). Email marketing otomasyonu kur (Mailchimp + n8n). 2–3 aktif müşteri veya iş görüşmesi. LinkedIn 1000+ takipçi. Kendi AI araç stack'ini dokümante et.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 6</div>
+        <div class="tl-title">Pozisyon Al</div>
+        <div class="tl-desc">Junior AI Marketing Specialist veya Growth Content Manager pozisyonu için başvuru. Freelance müşteri havuzu oluştur. İlk kapsamlı portföy sunumu hazırla. 6 aylık öğrenme özeti içerik serisi yayınla.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 12 AYLIK PLAN -->
+<div id="plan12" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">12 Aylık Plan</div>
+    <div class="hero-title">Bir Yılda<br>Uzman Ol</div>
+    <div class="hero-sub">Junior'dan Mid seviyeye giden 12 aylık yol haritası.</div>
+  </div>
+  <div class="content">
+    <div class="g2" style="margin-bottom:20px">
+      <div class="card card-accent">
+        <div class="card-label">İlk 6 Ay (Temel)</div>
+        <div class="list-item"><div class="list-dot"></div><div>Prompt mühendisliği ustası ol</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>n8n + Make ile 10+ çalışan otomasyon</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>LinkedIn 500–1000 takipçi</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>5 portfolyo projesi (case study ile)</div></div>
+        <div class="list-item"><div class="list-dot"></div><div>İlk müşteri veya iş teklifi</div></div>
+        <div style="margin-top:12px"><div class="tag tag-accent">Hedef: İlk gelir</div></div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-label">7–12. Ay (Derinleşme)</div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>AI Agent sistemleri geliştir</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>Growth hacking framework'leri uygula</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>SaaS/startup sektörünü öğren</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>LinkedIn 2000+ takipçi</div></div>
+        <div class="list-item"><div class="list-dot list-dot-teal"></div><div>2–3 aktif müşteri veya tam zamanlı iş</div></div>
+        <div style="margin-top:12px"><div class="tag tag-teal">Hedef: Düzenli gelir</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">Ay 7–12 Detayı</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-label">Ay 7–8</div>
+        <div class="tl-title">Growth Marketing Derinleşmesi</div>
+        <div class="tl-desc">AARRR framework ile gerçek bir ürün analizi yap. PLG (product-led growth) vaka çalışmaları oku. Funnel optimizasyonu projesi başlat. Reforge blog'u düzenli takip et.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 9–10</div>
+        <div class="tl-title">AI Agent Uzmanlığı</div>
+        <div class="tl-desc">LangChain temeli öğren. Müşteri için otonom içerik üretim sistemi kur. RAG (Retrieval Augmented Generation) ile şirket bilgi tabanı chatbotu yap. Bu beceri 2025'te en çok aranan.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Ay 11–12</div>
+        <div class="tl-title">Pozisyon & Marka</div>
+        <div class="tl-desc">Mid-level pozisyon için başvurular. Kendi servisini (hizmet paketi) fiyatlandır. LinkedIn'de düzenli düşünce liderliği içeriği. İlk konuşma/webinar teklifi al. Yıllık öğrenme özeti yayınla.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HAFTALIK PROGRAM -->
+<div id="haftalik" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Haftalık Program</div>
+    <div class="hero-title">Her Günün<br>Programı</div>
+    <div class="hero-sub">3+ saatlik günlük gelişim bloğu için optimize edilmiş haftalık düzen.</div>
+  </div>
+  <div class="content">
+    <div class="week-grid" style="margin-bottom:24px">
+      <div class="day-col">
+        <div class="day-name">Pzt</div>
+        <div class="day-block db-accent">Prompt Müh. pratik</div>
+        <div class="day-block db-teal">LinkedIn post yaz</div>
+        <div class="day-block db-purple">n8n workflow</div>
+        <div class="day-block db-gray">Log + plan</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Sal</div>
+        <div class="day-block db-teal">SEO / Analytics</div>
+        <div class="day-block db-accent">Blog taslağı</div>
+        <div class="day-block db-amber">Instagram içerik</div>
+        <div class="day-block db-gray">Vlog çek</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Çar</div>
+        <div class="day-block db-purple">AI Agent çalış</div>
+        <div class="day-block db-teal">LinkedIn yayınla</div>
+        <div class="day-block db-accent">Make.com proje</div>
+        <div class="day-block db-gray">Analiz oku</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Per</div>
+        <div class="day-block db-amber">Growth okuma</div>
+        <div class="day-block db-accent">Prompt kütüphane</div>
+        <div class="day-block db-teal">İçerik dağıt</div>
+        <div class="day-block db-gray">Kaynak tarat</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Cum</div>
+        <div class="day-block db-teal">LinkedIn post</div>
+        <div class="day-block db-purple">Portfolyo güncelle</div>
+        <div class="day-block db-accent">Otomasyon test</div>
+        <div class="day-block db-gray">Hafta log</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Cmt</div>
+        <div class="day-block db-amber">Derin öğrenme</div>
+        <div class="day-block db-accent">Proje çalış</div>
+        <div class="day-block db-teal">Toplu içerik üret</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Paz</div>
+        <div class="day-block db-gray">Haftalık özet</div>
+        <div class="day-block db-purple">Plan yap</div>
+        <div class="day-block db-amber">Pazar gönderisi</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Günlük Blok Yapısı</div>
+    <div class="card">
+      <div class="list-item"><div class="list-dot"></div><div><strong>08:00–09:30 · Öğrenme:</strong> O haftanın konusu (prompt / n8n / SEO vs.) — kesintisiz</div></div>
+      <div class="list-item"><div class="list-dot"></div><div><strong>09:30–11:00 · Üretim:</strong> İçerik yaz, otomasyon kur, proje geliştir</div></div>
+      <div class="list-item"><div class="list-dot"></div><div><strong>11:00–11:30 · Yayın & Etkileşim:</strong> Gönderi yayınla, yorumlara cevap ver</div></div>
+      <div class="list-item"><div class="list-dot"></div><div><strong>Öğleden Sonra · Serbest:</strong> Okuma, kaynak, ilham — zorlamak yasak</div></div>
+      <div class="list-item"><div class="list-dot"></div><div><strong>Akşam 10 dk · Log:</strong> Bugün ne yaptım, ne öğrendim, yarın ne yapacağım</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLYO -->
+<div id="portfolio" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Portfolyo</div>
+    <div class="hero-title">20 Proje Fikri</div>
+    <div class="hero-sub">Her biri bir işe alım görüşmesinde veya freelance teklifte somut kanıt olarak gösterilebilir.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">İlk 3 Ay — Hemen Başlayabileceğin Projeler</div>
+    <div class="proj-grid">
+      <div class="proj-card"><div class="proj-num">PRJ 01</div><div class="proj-title">AI İçerik Fabrikası</div><div class="proj-desc">ChatGPT + Canva + Buffer ile günde 5 platform için otomatik içerik üretim sistemi kur. Süreci dokümante et.</div><div class="tag tag-accent">Otomasyon</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 02</div><div class="proj-title">"Kimya Müh. → AI" LinkedIn Serisi</div><div class="proj-desc">30 günde 30 gönderi: dönüşüm hikayeni anlat. Her gönderi bir öğrenme, bir araç, bir insight. Gerçek büyüme verilerini paylaş.</div><div class="tag tag-teal">LinkedIn</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 03</div><div class="proj-title">Endüstriyel SEO Blog</div><div class="proj-desc">Kimya/üretim/yangın güvenliği sektörü için AI ile 10 SEO odaklı blog yazısı. Keyword araştırması + AI yazım + yayın.</div><div class="tag tag-purple">SEO + Blog</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 04</div><div class="proj-title">n8n Lead Nurture Pipeline</div><div class="proj-desc">Form doldur → AI kişiselleştirilmiş email gönder → CRM'e kaydet → 7 günlük follow-up serisi. Tam otomasyon.</div><div class="tag tag-accent">Otomasyon</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 05</div><div class="proj-title">Rakip Analizi AI Ajanı</div><div class="proj-desc">Perplexity + n8n ile rakip sosyal medyasını her hafta tarayıp özet rapor üreten sistem. Müşteriye sunum yap.</div><div class="tag tag-teal">AI Agent</div></div>
+            <div class="proj-card"><div class="proj-num">PRJ 06</div><div class="proj-title">Kişisel Marka Site</div><div class="proj-desc">Kendi GitHub Pages veya Carrd siteni kur. Hizmetler, case study'ler, iletişim. SEO optimize et.</div><div class="tag tag-amber">Marka</div></div>
+    </div>
+
+    <div class="sec-title">3–6 Ay — Orta Seviye Projeler</div>
+    <div class="proj-grid">
+      <div class="proj-card"><div class="proj-num">PRJ 07</div><div class="proj-title">SaaS Onboarding Email Serisi</div><div class="proj-desc">Hayali bir SaaS için 7 günlük AI yazılmış onboarding email sequence'i. A/B test varyasyonları da ekle.</div><div class="tag tag-teal">Email Marketing</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 08</div><div class="proj-title">Instagram AI Reels Sistemi</div><div class="proj-desc">ChatGPT ile script, CapCut ile video, Midjourney ile kapak. Haftada 5 reels üreten otomasyon kur.</div><div class="tag tag-accent">Video</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 09</div><div class="proj-title">LinkedIn Profil Audit Servisi</div><div class="proj-desc">3 kişinin LinkedIn profilini analiz et, AI ile iyileştirme öner, before/after dokümante et.</div><div class="tag tag-purple">Danışmanlık</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 10</div><div class="proj-title">Growth Metrics Dashboard</div><div class="proj-desc">Airtable ile tüm içerik kanallarının metriklerini takip eden dashboard. Haftalık otomatik rapor üret.</div><div class="tag tag-amber">Analytics</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 11</div><div class="proj-title">Endüstriyel Haber Bülteni</div><div class="proj-desc">Haftalık AI derlenmiş endüstriyel teknoloji bülteni. Perplexity + ChatGPT + Mailchimp ile 100 aboneye ulaş.</div><div class="tag tag-teal">Email + AI</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 12</div><div class="proj-title">Müşteri Case Study Serisi</div><div class="proj-desc">Gerçek bir müşteri için AI içerik kampanyası yürüt. Öncesi/sonrası metriklerle belgele.</div><div class="tag tag-green">Case Study</div></div>
+    </div>
+
+    <div class="sec-title">6–12 Ay — İleri Seviye Projeler</div>
+    <div class="proj-grid">
+      <div class="proj-card"><div class="proj-num">PRJ 13</div><div class="proj-title">AI Müşteri Chatbotu</div><div class="proj-desc">Şirket bilgi tabanı + RAG + n8n ile otomatik müşteri sorularına cevap veren sistem. Gerçek deployment.</div><div class="tag tag-accent">AI Agent</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 14</div><div class="proj-title">Content OS — Şirket için</div><div class="proj-desc">Küçük bir şirket için tüm içerik operasyon sistemini kur. SOP, araçlar, otomasyon, takip — hepsini dokümante et.</div><div class="tag tag-purple">Sistem</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 15</div><div class="proj-title">Growth Experiment Log</div><div class="proj-desc">30 günde 10 farklı büyüme deneyi yap. Hipotez → test → sonuç formatında belgele. LinkedIn'de paylaş.</div><div class="tag tag-teal">Growth</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 16</div><div class="proj-title">AI Prompt Kütüphanesi</div><div class="proj-desc">100+ test edilmiş prompt, sektöre göre kategorize edilmiş. Ücretsiz Notion şablonu olarak yayınla. Lead mıknatısı.</div><div class="tag tag-amber">Ürün</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 17</div><div class="proj-title">Startup İçin Ücretsiz Audit</div><div class="proj-desc">3 startup'ın içerik stratejisini ücretsiz analiz et, rapor sun. Referans + network + olası müşteri.</div><div class="tag tag-green">Büyüme</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 18</div><div class="proj-title">YouTube Vlog Serisi</div><div class="proj-desc">"AI ile içerik üretiyorum" vlog serisi. Ekran kaydı + yorum + gerçek sonuçlar. 10 bölüm.</div><div class="tag tag-accent">Video</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 19</div><div class="proj-title">B2B Lead Gen Sistemi</div><div class="proj-desc">LinkedIn + AI kişiselleştirme + otomatik takip zinciri. Etik sınırlar içinde tam otomasyon.</div><div class="tag tag-purple">B2B</div></div>
+      <div class="proj-card"><div class="proj-num">PRJ 20</div><div class="proj-title">Kendi Mini Servis Ürünü</div><div class="proj-desc">n8n + Tally ile basit bir AI aracı: "B2B email yazıcı" veya "Endüstriyel içerik üretici". Gerçek ürün.</div><div class="tag tag-teal">Ürün</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LİNKEDİN & MARKA -->
+<div id="linkedin" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">LinkedIn & Kişisel Marka</div>
+    <div class="hero-title">Bilinir ve<br>Aranan Biri Ol</div>
+    <div class="hero-sub">LinkedIn'de güçlü niş oluşturmak ve kişisel markayı sistematik büyütmek.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">LinkedIn Profil Optimizasyonu</div>
+    <div class="card card-accent" style="margin-bottom:16px">
+      <div class="num-list">
+        <div class="num-item"><div class="num-text"><div class="num-title">Başlık (Headline)</div>"Kimya Müh. → AI Growth Marketer | Teknik İçerik & Otomasyon Sistemleri" — nişini ve değer önermeni göster</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Hakkımda (About)</div>Hikayeyle başla: "Fabrikalarda yangın sistemleri satarken fark ettim ki..." — dönüşüm anlat, somut beceriler listele</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Öne Çıkan (Featured)</div>En iyi 3 içeriğini, portfolyo linkini ve ücretsiz prompt kütüphaneni sabitle</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Deneyim</div>Satış deneyimini "AI destekli satış stratejisi" çerçevesine oturt. Rakamlarla yaz.</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Banner görseli</div>Canva ile profesyonel: uzmanlık alanın + iletişim + kısa tagline</div></div>
+      </div>
+    </div>
+
+    <div class="sec-title">LinkedIn İçerik Stratejisi</div>
+    <div class="g3" style="margin-bottom:20px">
+      <div class="card">
+        <div class="card-label">Format 1 — Haftada 2x</div>
+        <div class="card-title">Öğrenme Paylaşımı</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">"Bu hafta n8n'de X'i öğrendim, işte adım adım nasıl kurdum..." — pratik, ekran görüntülü, değer odaklı</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Format 2 — Haftada 1x</div>
+        <div class="card-title">Dönüşüm Hikayesi</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">"Kimya mühendisinden AI içerikçiye — o günden bugüne ne değişti?" — kişisel, otantik, ilham verici</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Format 3 — Haftada 1x</div>
+        <div class="card-title">Teknik Breakdown</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">"Bu prompt şablonunu 3 farklı şekilde test ettim, sonuçlar şaşırttı" — veri, test, karşılaştırma</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Kişisel Marka Planı</div>
+    <div class="card card-teal" style="margin-bottom:16px">
+      <div class="card-title">NİŞ: "Teknik Sektörler için AI İçerik Uzmanı"</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px">Kimya mühendisliği + satış + AI = nadir kombinasyon. Endüstriyel SaaS, üretim teknolojisi, B2B satış araçları — bu şirketler için içerik üretebilirsin ve gerçek rakibin yok.</div>
+      <div class="list-item"><div class="list-dot list-dot-teal"></div><div><strong>Mesaj:</strong> "Fabrikalardan dijital dünyaya — teknik bilgiyi virale çeviren içerikçi"</div></div>
+      <div class="list-item"><div class="list-dot list-dot-teal"></div><div><strong>Hedef kitle:</strong> Endüstriyel B2B şirketler, teknik SaaS startup'ları, üretim teknolojisi markaları</div></div>
+      <div class="list-item"><div class="list-dot list-dot-teal"></div><div><strong>Fark:</strong> Teknik ürünleri hem anlayan hem anlatan az kişi var — bu seni çok değerli kılıyor</div></div>
+    </div>
+
+    <div class="sec-title">30 Günde LinkedIn Büyüme</div>
+    <div class="card">
+      <div class="num-list">
+        <div class="num-item"><div class="num-text"><div class="num-title">Gün 1–5: Profil optimize et</div>Başlık, hakkımda, featured güncelle. Banner yap. 50 bağlantı isteği gönder (sektöründen).</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Gün 6–15: İçerik ritmi kur</div>Haftada 4 gönderi. İlk 3 gönderide kişisel hikayeni anlat — en fazla etkileşim alan içerik bu.</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Gün 16–25: Etkileşim artır</div>Her gün 10 kişinin gönderisine değerli yorum yap. Sadece "Harika!" değil — gerçek insight ekle.</div></div>
+        <div class="num-item"><div class="num-text"><div class="num-title">Gün 26–30: Analiz & optimize</div>En çok etkileşim alan 3 içerik formatını belirle. Gelecek ay bu formatları 2x artır.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KAYNAKLAR -->
+<div id="kaynaklar" class="page">
+  <div class="page-hero">
+    <div class="hero-eyebrow">Kaynaklar</div>
+    <div class="hero-title">Nereden<br>Öğreneceksin?</div>
+    <div class="hero-sub">SaaS, startup, AI agent ve otomasyon için en iyi ücretsiz ve ücretli kaynaklar.</div>
+  </div>
+  <div class="content">
+    <div class="sec-title">SaaS Sektörünü Öğrenmek İçin</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">SaaStr Blog & Podcast</div><div class="res-sub">SaaS büyüme stratejisi · Tamamen ücretsiz · En kapsamlı kaynak</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">Lenny's Newsletter (lennysnewsletter.com)</div><div class="res-sub">Product + growth · İlk içerikler ücretsiz · En iyi PM/growth kaynağı</div></div><div class="res-badge" style="background:var(--amber3);color:var(--amber)">KARMA</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">OpenView Partners Blog</div><div class="res-sub">PLG (Product-led growth) · Tamamen ücretsiz · Derinlemesine vaka çalışmaları</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--purple)"></div><div class="res-info"><div class="res-name">Y Combinator YouTube</div><div class="res-sub">Startup kurucularından büyüme dersleri · Tamamen ücretsiz · Altın değerinde</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+    </div>
+
+    <div class="sec-title">Startup Dünyasını Öğrenmek İçin</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="res-row"><div class="res-dot" style="background:var(--accent)"></div><div class="res-info"><div class="res-name">Paul Graham Essays (paulgraham.com)</div><div class="res-sub">Startup zihniyetinin temeli · Tamamen ücretsiz · Klasikler</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--accent)"></div><div class="res-info"><div class="res-name">First Round Review (firstround.com/review)</div><div class="res-sub">Startup operasyonu ve büyüme · Derinlemesine makaleler · Ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--accent)"></div><div class="res-info"><div class="res-name">Reforge Blog (reforge.com)</div><div class="res-sub">Growth + product framework'leri · Blog ücretsiz</div></div><div class="res-badge" style="background:var(--amber3);color:var(--amber)">KARMA</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--purple)"></div><div class="res-info"><div class="res-name">Startup Türkiye & GarajTV</div><div class="res-sub">Yerli startup ekosistemi · Türk kurucuların deneyimleri · Ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+    </div>
+
+    <div class="sec-title">AI Agent & Otomasyon Öğrenmek İçin</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="res-row"><div class="res-dot" style="background:var(--purple)"></div><div class="res-info"><div class="res-name">DeepLearning.AI — Short Courses</div><div class="res-sub">AI Agents, LangChain, Prompt Engineering · Tamamen ücretsiz · Andrew Ng</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--purple)"></div><div class="res-info"><div class="res-name">n8n Resmi Dokümantasyon + Community</div><div class="res-sub">Workflow şablonları · Kullanıcı örnekleri · Tamamen ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--purple)"></div><div class="res-info"><div class="res-name">AI Advantage — YouTube Kanalı</div><div class="res-sub">Pratik AI araç kullanımı · n8n + ChatGPT örnekleri · Ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--amber)"></div><div class="res-info"><div class="res-name">Leon van Zyl — YouTube</div><div class="res-sub">n8n workflow örnekleri · Pratik projeler · Ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+    </div>
+
+    <div class="sec-title">Genel AI & Growth Kaynakları</div>
+    <div class="card">
+      <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">learnprompting.org</div><div class="res-sub">Prompt mühendisliği · En kapsamlı ücretsiz kaynak</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--teal)"></div><div class="res-info"><div class="res-name">growth.design</div><div class="res-sub">UX + growth case study'leri · Görsel format · Ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--accent)"></div><div class="res-info"><div class="res-name">The Rundown AI (therundown.ai)</div><div class="res-sub">Günlük AI haberleri · Ücretsiz bülten · Güncel kal</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--purple)"></div><div class="res-info"><div class="res-name">Marketing Examples (marketingexamples.com)</div><div class="res-sub">Gerçek pazarlama vaka çalışmaları · Copywriting · Ücretsiz</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+      <div class="res-row"><div class="res-dot" style="background:var(--amber)"></div><div class="res-info"><div class="res-name">BTK Akademi — AI + Otomasyon</div><div class="res-sub">Python, Yapay Zeka, Veri Bilimi · Ücretsiz sertifika · Türkçe</div></div><div class="res-badge" style="background:var(--teal3);color:var(--teal)">ÜCRETSİZ</div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+function go(id, el) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+  var page = document.getElementById(id);
+  if (page) page.classList.add('active');
+  if (el) el.classList.add('active');
+  document.querySelector('.main').scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
